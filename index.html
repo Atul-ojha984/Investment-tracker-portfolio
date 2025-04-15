@@ -1,54 +1,68 @@
 <!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/@codingnepal -->
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Investment Portfolio Tracker</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body class="bg-gray-100 min-h-screen">
-    <div class="container mx-auto p-4 max-w-4xl">
-        <header class="bg-blue-600 text-white p-4 rounded-t-lg shadow">
-            <h1 class="text-2xl font-bold">Investment Portfolio Tracker</h1>
-            <p class="text-blue-100">Powered by Gemini AI</p>
-        </header>
-
-        <div class="bg-white rounded-b-lg shadow-lg p-4">
-            <div id="chat-container" class="h-96 overflow-y-auto mb-4 p-2 border rounded">
-                <!-- Chat messages will appear here -->
-                <div class="chat-message bot bg-gray-100 p-3 rounded mb-2">
-                    Welcome to your investment portfolio tracker! How can I help you today?
-                </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot</title>
+    <!-- Linking Google Fonts For Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@32,400,0,0" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- App Header -->
+      <header class="app-header">
+        <h1 class="heading">Hello, there</h1>
+        <h4 class="sub-heading">How can I help you today?</h4>
+      </header>
+      <!-- Suggestions List -->
+      <ul class="suggestions">
+        <li class="suggestions-item">
+          <p class="text">Get investment ideas with your personalised stocks.</p>
+          <span class="icon material-symbols-rounded">draw</span>
+        </li>
+        <li class="suggestions-item">
+          <p class="text">How can I level up my investment profit?</p>
+          <span class="icon material-symbols-rounded">lightbulb</span>
+        </li>
+        <li class="suggestions-item">
+          <p class="text">Suggest some useful stocks which will grow 2x in 1 year.</p>
+          <span class="icon material-symbols-rounded">explore</span>
+        </li>
+        <li class="suggestions-item">
+          <p class="text">Create a stock portfolio with the best stocks.</p>
+          <span class="icon material-symbols-rounded">code_blocks</span>
+        </li>
+      </ul>
+      <!-- Chats -->
+      <div class="chats-container"></div>
+      <!-- Prompt Input -->
+      <div class="prompt-container">
+        <div class="prompt-wrapper">
+          <form action="#" class="prompt-form">
+            <input type="text" placeholder="Ask Gemini" class="prompt-input" required />
+            <div class="prompt-actions">
+              <!-- File Upload Wrapper -->
+              <div class="file-upload-wrapper">
+                <img src="gemini-logo.jpg" class="file-preview" />
+                <input id="file-input" type="file" accept="image/*, .pdf, .txt, .csv" hidden />
+                <button type="button" class="file-icon material-symbols-rounded">description</button>
+                <button id="cancel-file-btn" type="button" class="material-symbols-rounded">close</button>
+                <button id="add-file-btn" type="button" class="material-symbols-rounded">attach_file</button>
+              </div>
+              <!-- Send Prompt and Stop Response Buttons -->
+              <button id="stop-response-btn" type="button" class="material-symbols-rounded">stop_circle</button>
+              <button id="send-prompt-btn" class="material-symbols-rounded">arrow_upward</button>
             </div>
-
-            <div class="flex gap-2">
-                <input type="text" id="user-input" placeholder="Type your message here..." 
-                       class="flex-1 p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <button id="send-btn" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-                    Send
-                </button>
-            </div>
-
-            <div id="portfolio-display" class="mt-6">
-                <h2 class="text-xl font-semibold mb-2">Your Portfolio</h2>
-                <table class="w-full border-collapse">
-                    <thead>
-                        <tr class="bg-gray-200">
-                            <th class="p-2 text-left">Symbol</th>
-                            <th class="p-2 text-left">Quantity</th>
-                            <th class="p-2 text-left">Current Price</th>
-                            <th class="p-2 text-left">Value</th>
-                        </tr>
-                    </thead>
-                    <tbody id="portfolio-table">
-                        <!-- Portfolio data will appear here -->
-                    </tbody>
-                </table>
-            </div>
+          </form>
+          <!-- Theme and Delete Chats Buttons -->
+          <button id="theme-toggle-btn" class="material-symbols-rounded">light_mode</button>
+          <button id="delete-chats-btn" class="material-symbols-rounded">delete</button>
         </div>
+        <p class="disclaimer-text">Get ideas to invest with ai.</p>
+      </div>
     </div>
-
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
